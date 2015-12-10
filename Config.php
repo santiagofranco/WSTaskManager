@@ -4,7 +4,7 @@
 */
 define('DB_USERNAME', 'wstareas');
 define('DB_PASSWORD', 'wstareas');
-define('DB_HOST', '85.10.205.173:3306');
+define('DB_HOST', '85.10.205.173');
 define('DB_NAME', 'wstareas');
 
 /**
