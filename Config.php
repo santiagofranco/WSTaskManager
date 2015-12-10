@@ -2,10 +2,10 @@
 /**
  * Parametros de cofniguracion de la BD
 */
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', 'mysql');
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'task_manager');
+define('DB_USERNAME', 'wstareas');
+define('DB_PASSWORD', 'wstareas');
+define('DB_HOST', '85.10.205.173:3306');
+define('DB_NAME', 'wstareas');
 
 /**
  * Parametros o codigos que se devolveran como mesaje
