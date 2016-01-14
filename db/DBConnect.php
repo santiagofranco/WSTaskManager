@@ -13,7 +13,7 @@ class DBConnect{
 	 * */
 	public function __construct(){
 		//Traemos los parametros de Config.php
-		require 'Config.php';
+		include 'Config.php';
 		
 		//Cadena de conexion con la base de datos, requerida por el objeto PDO
 		$dsn = 'mysql:dbname='.DB_NAME.';host=' . DB_HOST . '';
