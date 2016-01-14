@@ -20,14 +20,15 @@ if( $method === 'GET'){
 				$id = $_REQUEST['id'];
 				
 				$tasks = $dao->getTaskByUsuarioId($id);
-				$parser->parsearArray($tasks,'tareas','tarea');
+				if(isset($_REQUEST['formato']) && $_REQUEST['formato'] == 'json')
+					echo json_encode($tasks);
+				else
+					$parser->parsearArray($tasks,'tareas','tarea');
 				
 			}else{
 				$parser->xmlError("Falta algun parametro", 'error');
 			}
 			
-			
-		}else if ($op === 'search_task'){
 			
 		}
 		
