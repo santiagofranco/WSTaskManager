@@ -24,7 +24,14 @@ $tasks = $dao->getTasks();
 <p>Email:<input type="text" name="email" /></p>
 <p>Contraseña:<input type="password" name="pass" /></p>
 <input type="submit"/>
+</form>
 
+<h1>Prueba tarea</h1>
+<form action="task.php" method="post">
+<input type="hidden" name="op" value="add_task" />
+<p>Id:<input type="text" name="idUser" /></p>
+<p>Tarea:<input type="text" name="task" /></p>
+<input type="submit"/>
 </form>
 
 

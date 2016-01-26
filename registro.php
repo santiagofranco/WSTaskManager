@@ -6,7 +6,6 @@ $dao = new DAOUsuarios ();
 
 if ($method === 'GET') {
 	
-	echo 'Enviado por get, envialo por post tontorron, que son datos sensibles';
 } else if ($method === 'POST') {
 	
 	if (isset ( $_REQUEST ['op'] )) {

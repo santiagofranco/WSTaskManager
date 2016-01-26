@@ -9,7 +9,7 @@ class DAOTasks {
 	
 	/**
 	 * Insertar una tarea en la BD
-	 * 
+	 *
 	 * @param
 	 *        	userId Id del usuario que ha creado la tarea
 	 * @param
@@ -17,8 +17,6 @@ class DAOTasks {
 	 *        	
 	 */
 	public function addTask($userId, $task) {
-		require 'Config.php';
-		
 		$insert = $this->insertTask ( $task ); // Insertamos la tarea en su tabla
 		
 		if ($insert) { // Si se ha insertado correctamente guardamos la relacion del usuario con su tarea
@@ -26,17 +24,17 @@ class DAOTasks {
 			$ultimoTaskId = $this->getUltimoTaskId ();
 			$insertTask = $this->insertRelacionUsuarioTarea ( $userId, $ultimoTaskId );
 			
-			if (! $insertTask)
-				return TASK_CREATE_FAILED;
+			if ($insertTask)
+				return TASK_CREATED_SUCCESSFULLY;
 			
-			return TASK_CREATED_SUCCESSFULLY;
+			return TASK_CREATE_FAILED;
 		} else
 			return TASK_CREATE_FAILED;
 	}
 	/**
 	 *
 	 * Insertamos una relacion de usuario - tarea
-	 * 
+	 *
 	 * @param
 	 *        	userId que se desea relacionar
 	 * @param
@@ -44,12 +42,11 @@ class DAOTasks {
 	 *        	
 	 */
 	private function insertRelacionUsuarioTarea($userId, $taskId) {
-		$query = "INSERT INTO user_tasks (user_id, task_id) VALUES (:user_id,:task_id)";
-		$statement = $this->conn->prepare ( $query );
-		$statement->bindParam ( ':user_id', $userId );
-		$statement->bindParam ( ':task_id', $taskId );
-		$insertTask = $statement->execute();
-		return $insertTask;
+		$query = "INSERT INTO user_tasks (user_id, task_id) VALUES (:user_id, :task_id )";
+		$statement = $this->conn->prepare($query);
+		$statement->bindParam(":user_id", $userId);
+		$statement->bindParam(":task_id", $taskId);
+		return $statement->execute();
 	}
 	
 	/**
@@ -109,12 +106,12 @@ class DAOTasks {
 	/**
 	 * Obtener todas las tareas por un id de usuario
 	 */
-	public function getTaskByUsuarioId($id){
-		$query = "SELECT tasks.id, tasks.task, tasks.status, tasks.created_at FROM tasks, user_tasks ut where ut.user_id = ".$id." and tasks.id = ut.task_id";
+	public function getTaskByUsuarioId($id) {
+		$query = "SELECT tasks.id, tasks.task, tasks.status, tasks.created_at FROM tasks, user_tasks ut where ut.user_id = " . $id . " and tasks.id = ut.task_id";
 		$statement = $this->conn->prepare ( $query );
 		$res = $statement->execute ();
 		if (! $res)
 			return false;
-			return $statement->fetchAll ( PDO::FETCH_ASSOC );
+		return $statement->fetchAll ( PDO::FETCH_ASSOC );
 	}
 }
