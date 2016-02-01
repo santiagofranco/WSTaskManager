@@ -1,0 +1,221 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.4.1
+-- http://www.phpmyadmin.net
+--
+-- Servidor: 127.0.0.1:3306
+-- Tiempo de generación: 01-02-2016 a las 10:37:59
+-- Versión del servidor: 5.7.10
+-- Versión de PHP: 5.5.9-1ubuntu4.14
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Base de datos: `wstareas`
+--
+CREATE DATABASE IF NOT EXISTS `wstareas` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE `wstareas`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tasks`
+--
+
+CREATE TABLE `tasks` (
+  `id` int(11) NOT NULL,
+  `task` text NOT NULL,
+  `status` int(1) NOT NULL DEFAULT '0',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `tasks`
+--
+
+INSERT INTO `tasks` (`id`, `task`, `status`, `created_at`) VALUES
+(12, 'Esta es la tarea 1 del usuario 1', 1, '2015-12-10 20:17:41'),
+(13, 'Esta es la tarea 2 del usuario 1', 1, '2015-12-10 20:17:42'),
+(14, 'Esta es la tarea 1 del usuario 2', 1, '2015-12-10 20:17:42'),
+(15, 'Esta es la tarea 2 del usuario 2', 1, '2015-12-10 20:17:42'),
+(16, 'Ejemplo: probando parametros', 1, '2015-12-22 17:51:49'),
+(17, 'Probando dao', 1, '2016-01-26 15:44:09'),
+(18, 'Enviado tarea por post', 1, '2016-01-26 15:45:40'),
+(19, 'Enviado tarea por post', 1, '2016-01-26 15:47:15'),
+(20, 'Enviado tarea por post', 1, '2016-01-26 15:48:02'),
+(21, 'Enviado tarea por post', 1, '2016-01-26 15:48:07'),
+(22, 'Enviado tarea por post', 1, '2016-01-26 15:48:42'),
+(23, 'Enviado tarea por post', 1, '2016-01-26 15:49:20'),
+(24, 'Enviado tarea por post', 1, '2016-01-26 15:49:56'),
+(25, 'Enviado tarea por post', 1, '2016-01-26 15:50:09'),
+(26, 'Enviado tarea por post', 1, '2016-01-26 15:50:59'),
+(27, 'Enviado tarea por post', 1, '2016-01-26 15:51:57'),
+(28, 'Enviado tarea por post', 1, '2016-01-26 15:52:13'),
+(29, 'Enviado tarea por post', 1, '2016-01-26 15:52:23'),
+(30, 'Enviado tarea por post', 1, '2016-01-26 15:55:24'),
+(31, 'Enviado tarea por post', 1, '2016-01-26 15:59:41'),
+(32, 'Enviado tarea por post', 1, '2016-01-26 16:01:18'),
+(33, 'Enviado tarea por post', 1, '2016-01-26 16:05:49'),
+(34, 'Enviado tarea por post', 1, '2016-01-26 16:08:01'),
+(35, 'Enviado tarea por post', 1, '2016-01-26 16:08:38'),
+(36, 'Enviando tarea desde heroku', 1, '2016-01-26 16:13:15'),
+(37, 'Enviando tarea desde azure', 1, '2016-01-26 16:13:48'),
+(38, 'Probando secuencia 0', 1, '2016-01-27 19:31:02'),
+(39, 'Probando secuencia 1', 1, '2016-01-27 19:31:02'),
+(40, 'Probando secuencia 2', 1, '2016-01-27 19:31:02'),
+(41, 'Probando secuencia 3', 1, '2016-01-27 19:31:02'),
+(42, 'Probando secuencia 4', 1, '2016-01-27 19:31:03'),
+(43, 'Probando secuencia 5', 1, '2016-01-27 19:31:03'),
+(44, 'Probando secuencia 6', 1, '2016-01-27 19:31:03'),
+(45, 'Probando secuencia 7', 1, '2016-01-27 19:31:04'),
+(46, 'Probando secuencia 8', 1, '2016-01-27 19:31:04'),
+(47, 'Probando secuencia 9', 1, '2016-01-27 19:31:04'),
+(48, 'Probando secuencia 10', 1, '2016-01-27 19:31:04'),
+(49, 'Probando secuencia 11', 1, '2016-01-27 19:31:05'),
+(50, 'Probando secuencia 12', 1, '2016-01-27 19:31:05'),
+(51, 'Probando secuencia 13', 1, '2016-01-27 19:31:05'),
+(52, 'Probando secuencia 14', 1, '2016-01-27 19:31:05'),
+(53, 'Probando secuencia 15', 1, '2016-01-27 19:31:06'),
+(54, 'Probando secuencia 16', 1, '2016-01-27 19:31:06'),
+(55, 'Probando secuencia 17', 1, '2016-01-27 19:31:06'),
+(56, 'Probando secuencia 18', 1, '2016-01-27 19:31:06'),
+(57, 'Probando secuencia 19', 1, '2016-01-27 19:31:07'),
+(58, 'Subiendo tarea desde android', 1, '2016-01-27 20:43:04'),
+(59, 'Just another task from android', 1, '2016-01-27 20:44:51'),
+(60, 'Last test from android', 1, '2016-01-27 20:46:26'),
+(61, 'One more', 1, '2016-01-27 22:16:06'),
+(62, 'jdjdjsnz', 1, '2016-01-28 13:20:55');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `user_tasks`
+--
+
+CREATE TABLE `user_tasks` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `task_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `user_tasks`
+--
+
+INSERT INTO `user_tasks` (`id`, `user_id`, `task_id`) VALUES
+(2, 1, 12),
+(3, 1, 13),
+(4, 2, 14),
+(5, 2, 15),
+(6, 1, 16),
+(7, 1, 17),
+(25, 1, 35),
+(26, 1, 36),
+(27, 1, 37),
+(28, 1, 38),
+(29, 1, 39),
+(30, 1, 40),
+(31, 1, 41),
+(32, 1, 42),
+(33, 1, 43),
+(34, 1, 44),
+(35, 1, 45),
+(36, 1, 46),
+(37, 1, 47),
+(38, 1, 48),
+(39, 1, 49),
+(40, 1, 50),
+(41, 1, 51),
+(42, 1, 52),
+(43, 1, 53),
+(44, 1, 54),
+(45, 1, 55),
+(46, 1, 56),
+(47, 1, 57),
+(48, 1, 58),
+(49, 1, 59),
+(50, 1, 60),
+(51, 1, 61),
+(52, 1, 62);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `name` varchar(250) DEFAULT NULL,
+  `email` varchar(255) NOT NULL,
+  `password_hash` text NOT NULL,
+  `api_key` varchar(32) NOT NULL,
+  `status` int(1) NOT NULL DEFAULT '1',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password_hash`, `api_key`, `status`, `created_at`) VALUES
+(1, 'santiago', 'email@email.com', '792d28329de7ed446c01b83f731a071248ffeaf4', '50444dfb921390dcc75fa293fefb252d', 1, '2015-12-02 17:46:40'),
+(2, 'santiago', 'email@hotmail.com', '792d28329de7ed446c01b83f731a071248ffeaf4', '141efd3072ac8998a5762acdf11fac22', 1, '2015-12-02 17:49:15'),
+(4, 'pepito', 'pepito@hotmail.com', 'e04820372e7f2ebb2d76987433579219b11c2ba5', '8e7c61eee0ba9fb98b189735f8eb32d7', 1, '2016-01-14 16:51:22'),
+(5, '', '', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'cf0e9a5ccf1be1c7da52f6670096d786', 1, '2016-01-14 16:52:15'),
+(6, 'juanito', 'juanito@email.com', '3e1ba54bf15f943784a315ab22309844cc2b76c6', '93b02b56e65bd675d02f0ac70361f3fd', 1, '2016-01-14 17:14:24');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `tasks`
+--
+ALTER TABLE `tasks`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `user_tasks`
+--
+ALTER TABLE `user_tasks`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `task_id` (`task_id`);
+
+--
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `tasks`
+--
+ALTER TABLE `tasks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+--
+-- AUTO_INCREMENT de la tabla `user_tasks`
+--
+ALTER TABLE `user_tasks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `user_tasks`
+--
+ALTER TABLE `user_tasks`
+  ADD CONSTRAINT `user_tasks_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_tasks_ibfk_2` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
