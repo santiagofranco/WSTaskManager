@@ -2,6 +2,8 @@
 
 Web service para guardar y recuperar tareas en forma de xml o json. Mediante un id de usuario.
 
+#Usage
+
 ## Tareas
 
 El archivo que recibe las query string es **/task.php**
